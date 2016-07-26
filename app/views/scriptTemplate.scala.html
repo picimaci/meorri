@@ -1,0 +1,47 @@
+@(selectedMenu: String, scripts: Html = Html(""))
+<script src="@routes.Application.jsMessages()" type="text/javascript"></script>
+<script src="@routes.Application.jsRoutes()" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("jquery-ui.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("angular.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("angular-sanitize.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("angular-animate.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("angular-route.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("toastr.min.js"))" type="text/javascript"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("angular.js"))" type="text/javascript"></script>
+<script type="text/javascript" src="@routes.WebJarAssets.at(WebJarAssets.locate("loading-bar.min.js"))"></script>
+<script src="@routes.Assets.versioned("javascripts/jquery.ui.widget.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/core/source/App.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/core/source/AppNavigation.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/core/source/AppForm.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@routes.Assets.versioned("javascripts/angular-utils.js")"></script>
+<script type="text/javascript" src="@routes.Assets.versioned("vendor/jqueryui/js/jquery-ui-timepicker.min.js")"></script>
+<script type="application/javascript">
+
+        if("@selectedMenu" != "" && "@selectedMenu" != "Dashboard"){
+            function setActiveMainMenu(mainMenu) {
+                jQuery('.' + mainMenu).addClass('open');
+                jQuery('#' + mainMenu).addClass('in');
+            }
+            if(jQuery('#@selectedMenu').length != 0){
+                jQuery('#@selectedMenu').addClass('active');
+
+                if(jQuery('#@selectedMenu').attr('class').lastIndexOf('admin') > 0) {
+                    setActiveMainMenu('admin');
+                }
+            }
+        }
+</script>
+<script type="text/javascript">
+        jQuery(document).ready(function() {
+            @if(flash.contains("success")) {
+            pushSuccess("@flash.get("success")", "");}
+            @if(flash.contains("warning")) {
+            pushWarning("@flash.get("warning")", "");}
+            @if(flash.contains("error")) {
+            pushError("@flash.get("error")", "");}
+        });
+</script>
+@scripts

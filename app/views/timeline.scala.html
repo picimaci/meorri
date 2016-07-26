@@ -1,0 +1,196 @@
+@()
+@scripts = {
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("paginate-anything.js"))" type="text/javascript"></script>
+    @*<script src="@routes.Assets.versioned("javascripts/store/storeeditor.js")" type="text/javascript"></script>*@
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <script>
+            jQuery(document).ready(function () {
+                @*var scope = angular.element(jQuery('#storeEditorCtrl')).scope();*@
+                @*var vm = scope.vm;*@
+                @*vm.id = @id;*@
+                @*scope.init();*@
+            });
+    </script>
+}
+
+@main("Store", "simplemenu", "gallery", scripts) {
+    <div id="content">
+        <section>
+            <div class="section-header">
+                <ol class="breadcrumb">
+                    <li class="active">Timeline</li>
+                </ol>
+            </div>
+            <div class="section-body">
+                <div class="container">
+                    <h2 class="text-light text-center">Fixed layout</h2>
+                    <br/>
+
+                        <!-- BEGIN FIXED TIMELINE -->
+                    <ul class="timeline collapse-lg timeline-hairline">
+                        <li class="timeline-inverted">
+                            <div class="timeline-circ circ-xl style-primary"><span class="glyphicon glyphicon-leaf"></span></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-bright">
+                                    <div class="card-body small-padding">
+                                        <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar9.jpg?1404026744" alt="" />
+                                        <span class="text-medium">
+                                            Received a <a class="text-primary" href="../../html/mail/inbox.html">
+                                            message</a> from <span class="text-primary">Ann Lauren</span></span><br/>
+                                        <span class="opacity-50">
+                                            Saturday, Oktober 18, 2014
+                                        </span>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                        <li>
+                            <div class="timeline-circ circ-xl style-accent"><i class="md md-location-on"></i></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-bright">
+                                    <div class="card-body small-padding">
+                                        <p>
+                                            <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar7.jpg?1404026721" alt="" />
+                                            <span class="text-medium">User login at <span class="text-primary">
+                                                8:15 pm</span></span><br/>
+                                            <span class="opacity-50">
+                                                Saturday, August 2, 2014
+                                            </span>
+                                        </p>
+                                        Check out my new location.
+                                    </div><!--end .card-body -->
+                                    <div class="card-body no-padding">
+                                        <div id="map-canvas2" class="border-gray height-12"></div>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                        <li>
+                            <div class="timeline-circ circ-xl style-default-dark"><i class="fa fa-quote-left"></i></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-dark">
+                                    <div class="card-body small-padding">
+                                        <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar7.jpg?1404026721" alt="" />
+                                        <span class="text-medium">Meeting in the <span class="text-primary">
+                                            conference room</span></span><br/>
+                                        <span class="opacity-50">
+                                            Saturday, Juli 29, 2014
+                                        </span>
+                                    </div><!--end .card-body -->
+                                    <div class="card-body">
+                                        <p><em>Walked all the way home...</em></p>
+                                        <img class="img-responsive" src="../../assets/img/img14.jpg?1404589160" alt="" />
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                    </ul>
+                        <!-- END FIXED TIMELINE -->
+
+                </div><!--end .container -->
+            </div><!--end .section-body -->
+        </section>
+        <br/><br/>
+        <section>
+            <div class="section-body">
+                <div class="container">
+                    <h2 class="text-light text-center">Responsive layout</h2>
+                    <br/>
+
+                        <!-- BEGIN RESPONSIVE TIMELINE -->
+                    <ul class="timeline collapse-md">
+                        <li class="timeline-inverted">
+                            <div class="timeline-circ"></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-light">
+                                    <div class="card-body small-padding">
+                                        <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar9.jpg?1404026744" alt="" />
+                                        <span class="text-medium">Received a <a class="text-primary" href="../../html/mail/inbox.html">message</a> from <span class="text-primary">Ann Lauren</span></span><br/>
+                                        <span class="opacity-50">
+                                            Saturday, Oktober 18, 2014
+                                        </span>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                        <li>
+                            <div class="timeline-circ"></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-light">
+                                    <div class="card-body small-padding">
+                                        <p>
+                                            <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar7.jpg?1404026721" alt="" />
+                                            <span class="text-medium">User login at <span class="text-primary">8:15 pm</span></span><br/>
+                                            <span class="opacity-50">
+                                                Saturday, August 2, 2014
+                                            </span>
+                                        </p>
+                                        Check out my new location.
+                                    </div><!--end .card-body -->
+                                    <div class="card-body no-padding">
+                                        <div id="map-canvas1" class="border-gray height-12"></div>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-circ style-default-dark"></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-dark">
+                                    <div class="card-body small-padding">
+                                        <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar7.jpg?1404026721" alt="" />
+                                        <span class="text-medium">Meeting in the <span class="text-primary">conference room</span></span><br/>
+                                        <span class="opacity-50">
+                                            Saturday, Juli 29, 2014
+                                        </span>
+                                    </div><!--end .card-body -->
+                                    <div class="card-body">
+                                        <p><em>My new home</em></p>
+                                        <img class="img-responsive" src="../../assets/img/img12.jpg?1403934955" alt="" />
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                        <li>
+                            <div class="timeline-circ circ-xl style-primary-gradient"><span class="glyphicon glyphicon-upload"></span></div>
+                            <div class="timeline-entry">
+                                <div class="card style-primary">
+                                    <div class="card-body small-padding">
+                                        <p><img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar5.jpg?1404026513" alt="" />
+                                            <span class="text-medium">Contacted <a class="text-primary-dark" href="../../html/mail/inbox.html">Mabel Logan</a></span><br/>
+                                            <span class="opacity-50">
+                                                Saturday, Juli 23, 2014
+                                            </span>
+                                        </p>
+                                        <em>
+                                            Can you send me the latest updates? Then I can see the new colors for the themes.
+                                        </em>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-circ circ-lg"><span class="glyphicon glyphicon-plus-sign"></span></div>
+                            <div class="timeline-entry">
+                                <div class="card style-default-light">
+                                    <div class="card-body small-padding">
+                                        <img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar7.jpg?1404026721" alt="" />
+                                        <span class="text-medium">User registered on website</span><br/>
+                                        <span class="opacity-50">
+                                            Saturday, March 2, 2014
+                                        </span>
+                                    </div><!--end .card-body -->
+                                </div><!--end .card -->
+                            </div><!--end .timeline-entry -->
+                        </li>
+                    </ul>
+                        <!-- END RESPONSIVE TIMELINE -->
+
+                </div><!--end .container -->
+            </div><!--end .section-body -->
+        </section>
+    </div><!--end #content-->
+        <!-- END CONTENT -->
+}

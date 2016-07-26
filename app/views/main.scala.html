@@ -1,0 +1,150 @@
+@import utils.AppConf
+
+@(selectedMenu: String, template: String, specifier: String, scripts: Html = Html(""), styles: Html = Html(""))(content: Html)
+
+<!DOCTYPE html>
+@import play.i18n
+<html>
+
+    @headerTemplate(template, specifier)
+
+    <body class="menubar-hoverable header-fixed menubar-pin ">
+
+            <!-- BEGIN HEADER-->
+        <header id="header" >
+            <div class="headerbar">
+                    <!-- Brand and toggle get grouped for bett er mobile display -->
+                <div class="headerbar-left">
+                    <ul class="header-nav header-nav-options">
+                        <li class="header-nav-brand" >
+                            <div class="brand-holder">
+                                <a href="@routes.Application.index()">
+                                    <span class="message-lg message-bold message-primary">@Messages.get("menu.name")</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="headerbar-center">
+                    <ul class="header-nav">
+                        <li class="dropdown profile">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="meta">
+                                    <span class="caret"></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="headerbar-right">
+                    <ul class="header-nav">
+                        <li class="dropdown profile">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="meta">
+                                    <span class="caret"></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div> <!--end #header-navbar-collapse -->
+            </div>
+        </header>
+            <!-- END HEADER-->
+
+            <!-- BEGIN BASE-->
+        <div id="base">
+
+                <!-- BEGIN OFFCANVAS LEFT -->
+            <div class="offcanvas">
+            </div> <!--end .offcanvas-->
+            <!-- END OFFCANVAS LEFT -->
+
+            <!-- BEGIN CONTENT-->
+            <div id="content">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                @if(flash.contains("success")) {
+                                    <script type="message/javascript">
+                                            pushSuccess('@flash.get("success")', "");
+                                    </script>
+                                }
+                                @if(flash.contains("warning")) {
+                                    <script type="message/javascript">
+                                            pushWarning('@flash.get("warning")', "");
+                                    </script>
+                                }
+                                @if(flash.contains("confirm")) {
+                                    <script type="message/javascript">
+                                            pushConfirm('@flash.get("confirm")', '@flash.get("okaction")', null);
+                                    </script>
+                                }
+                                @if(flash.contains("error")) {
+                                    <script type="message/javascript">
+                                            pushError('@flash.get("error")', "");
+                                    </script>
+                                }
+                                @if(flash.contains("errorPermanent")) {
+                                    <script type="message/javascript">
+                                            pushError('@flash.get("errorPermanent")', "");
+                                    </script>
+                                }
+                                @content
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div> <!--end #content-->
+            <!-- END CONTENT -->
+
+
+            <!-- BEGIN MENUBAR-->
+            <div id="menubar" class="menubar-inverse ">
+
+                <div class="menubar-scroll-panel">
+
+                        <!-- BEGIN MAIN MENU -->
+                    <ul id="main-menu" class="gui-controls">
+                        <li class="gui-folder">
+                            <a>
+                                <div class="gui-icon"><i class="md md-insert-photo"></i></div>
+                                <span class="title">@Messages.get("gallery")</span>
+                            </a>
+                            <ul>
+                                <li><a href="@controllers.routes.Application.gallery()"><span class="title">@Messages.get("donlon")</span></a></li>
+                                <li><a href="@controllers.routes.Application.gallery()"><span class="title">@Messages.get("others")</span></a></li>
+                            </ul>
+                        </li>
+
+                    </ul> <!--end .main-menu -->
+                    <!-- END MAIN MENU -->
+                    <div class="menubar-foot-panel">
+                        <small class="no-linebreak hidden-folded">
+                            <span class="opacity-75">&copy; @(new Date().format("yyyy") + " " + Messages.get("project.name")) @AppConf.getConfigString(AppConf.APPLICATION_VERSION)</span>
+                        </small>
+                    </div>
+                </div> <!--end .menubar-scroll-panel-->
+            </div> <!--end #menubar-->
+            <!-- END MENUBAR -->
+        </div> <!--end #base-->
+        <!-- END BASE -->
+
+        @scriptTemplate(selectedMenu, scripts)
+
+    </body>
+</html>

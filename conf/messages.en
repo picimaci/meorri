@@ -1,0 +1,11 @@
+project.name=MeOrRi
+menu.name=MeOrRi
+
+simplemenu={0}
+gallery=Gallery
+comics=Comics
+donlon=Donlon
+others=Others
+
+core.menu.dashboard=Meorri Art
+

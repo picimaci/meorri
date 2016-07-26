@@ -1,0 +1,20 @@
+@( template: String, specifier: String, styles: Html = Html(""))
+
+<head>
+    <title>@Messages.get("project.name") - @Messages.get(template, Messages.get(specifier))</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="image/png" rel="shortcut icon" href="@routes.Assets.versioned("images/favicon.ico")">
+    <link rel="stylesheet" href="@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))" />
+    <link type="text/css" rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/materialadmin.css")">
+    @*<link type="text/css" rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">*@
+    <link type="text/css" rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/theme-default/font-awesome.min.css")" />
+    <link type="text/css" rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/theme-default/material-design-iconic-font.min.css")" />
+    <link type="text/css" rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/icons/iconfont/style.min.css")" />
+    <link rel="stylesheet" href="@routes.WebJarAssets.at(WebJarAssets.locate("toastr.min.css"))" />
+
+    <link rel="stylesheet" href="@routes.WebJarAssets.at(WebJarAssets.locate("jquery-ui.min.css"))">
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("modernizr.min.js"))"></script>
+    @styles
+</head>

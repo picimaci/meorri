@@ -1,0 +1,139 @@
+@()
+@scripts = {
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("paginate-anything.js"))" type="text/javascript"></script>
+    @*<script src="@routes.Assets.versioned("javascripts/store/storeeditor.js")" type="text/javascript"></script>*@
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <script>
+            jQuery(document).ready(function () {
+                @*var scope = angular.element(jQuery('#storeEditorCtrl')).scope();*@
+                @*var vm = scope.vm;*@
+                @*vm.id = @id;*@
+                @*scope.init();*@
+            });
+    </script>
+}
+
+@main("Store", "simplemenu", "gallery", scripts) {
+<!-- BEGIN CONTENT-->
+<div id="content">
+    <section>
+        <div class="section-header">
+            <ol class="breadcrumb">
+                <li class="active">Blog list</li>
+            </ol>
+        </div>
+        <div class="section-body contain-lg">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-tiles style-default-light">
+                        <div class="row">
+
+                                <!-- BEGIN ARTICLES -->
+                            <div class="col-sm-9">
+                                <article>
+                                    <div class="card-body style-default-dark">
+                                        <h2>Sample blog post</h2>
+                                        <div class="opacity-75">January 1, 2014 by <a href="#">Mark</a></div>
+                                    </div>
+                                    <div class="card-body style-default-bright">
+                                        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+                                        <blockquote>
+                                            <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        </blockquote>
+                                        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                                        <h2>Heading</h2>
+                                        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                        <a class="btn btn-default" href="../../../html/pages/blog/post.html">Read more</a>
+                                    </div>
+                                </article><!-- end article -->
+                                <article>
+                                    <div class="card-body style-default-dark">
+                                        <h2>Another blog post</h2>
+                                        <div class="opacity-75">December 23, 2013 by <a href="#">Jacob</a></div>
+                                    </div>
+                                    <div class="card-body style-default-bright">
+                                        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+                                        <blockquote>
+                                            <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        </blockquote>
+                                        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                                        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                        <a class="btn btn-default" href="../../../html/pages/blog/post.html">Read more</a>
+                                    </div>
+                                </article><!-- end article -->
+                                <article>
+                                    <div class="card-body style-default-dark">
+                                        <h2>New feature</h2>
+                                        <div class="opacity-75">December 14, 2013 by <a href="#">Chris</a></div>
+                                    </div>
+                                    <div>
+                                        <img class="img-responsive" src="../../../assets/img/img1.jpg?1403934956" alt="" />
+                                    </div>
+                                    <div class="card-body style-default-bright">
+                                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                                        <ul>
+                                            <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+                                            <li>Donec id elit non mi porta gravida at eget metus.</li>
+                                            <li>Nulla vitae elit libero, a pharetra augue.</li>
+                                        </ul>
+                                        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                                        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+                                        <a class="btn btn-default" href="../../../html/pages/blog/post.html">Read more</a>
+                                    </div>
+                                </article><!-- end article -->
+                            </div><!-- .col -->
+                            <!-- END ARTICLES -->
+
+                            <!-- BEGIN BLOG MENUBAR -->
+                            <div class="col-sm-3">
+                                <div class="card-body">
+                                    <h3 class="text-light">About</h3>
+                                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                                    <h3 class="text-light">Archives</h3>
+                                    <ul class="nav nav-pills nav-stacked nav-transparent">
+                                        <li><a href="#"><span class="badge pull-right">42</span>Design</a></li>
+                                        <li><a href="#"><span class="badge pull-right">56</span>January 2014</a></li>
+                                        <li><a href="#"><span class="badge pull-right">32</span>December 2013</a></li>
+                                        <li><a href="#"><span class="badge pull-right">19</span>November 2013</a></li>
+                                        <li><a href="#"><span class="badge pull-right">22</span>October 2013</a></li>
+                                        <li><a href="#"><span class="badge pull-right">14</span>September 2013</a></li>
+                                        <li><a href="#"><span class="badge pull-right">5</span>August 2013</a></li>
+                                    </ul>
+                                    <h3 class="text-light">Elsewhere</h3>
+                                    <ul class="nav nav-pills nav-stacked nav-transparent">
+                                        <li><a href="#">GitHub</a></li>
+                                        <li><a href="#">Twitter</a></li>
+                                        <li><a href="#">Facebook</a></li>
+                                    </ul>
+                                </div><!-- .card-body -->
+                            </div><!--end .col -->
+
+                            <!-- BEGIN BLOG MENUBAR -->
+                        </div><!-- .row -->
+                    </div>
+                </div><!--end .col -->
+            </div><!--end .row -->
+
+            <!-- BEGIN PAGINATION -->
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <ul class="pagination pagination-lg">
+                        <li class="disabled"><a href="#">«</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div><!--end .col -->
+            </div><!--end .row -->
+            <!-- END PAGINATION -->
+
+        </div><!--end .section-body -->
+    </section>
+</div><!--end #content-->
+    <!-- END CONTENT -->
+    }
