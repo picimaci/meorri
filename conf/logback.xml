@@ -1,0 +1,55 @@
+<configuration>
+
+    <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel"/>
+    <appender name="APPFILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:/Development/Logs/rossmann/application.log</file>
+        <encoder>
+            <pattern>%date - [%level] - %message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="NOTIFICATION" class="ch.qos.logback.core.FileAppender">
+        <file>D:/Development/Logs/rossmann/notification.log</file>
+        <encoder>
+            <pattern>%date - [%level] - %message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="API" class="ch.qos.logback.core.FileAppender">
+        <file>D:/Development/Logs/rossmann/application.log</file>
+        <encoder>
+            <pattern>%date - [%level] - %message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%coloredLevel %logger{15} - %message%n%xException{5}</pattern>
+        </encoder>
+    </appender>
+    <appender name="SESSIONSTORE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:/Development/Logs/rossmann/sessionstore.log</file>
+        <encoder>
+            <pattern>%date - [%level] - %message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="play" level="INFO"/>
+
+    <logger name="application" level="DEBUG"/>
+    <logger name="sessionstore" level="DEBUG">
+        <appender-ref ref="SESSIONSTORE_FILE"/>
+    </logger>
+    <root level="DEBUG">
+        <appender-ref ref="APPFILE"/>
+    </root>
+    <root name="api" level="DEBUG">
+        <appender-ref ref="API"/>
+    </root>
+    <logger name="notification" level="DEBUG">
+        <appender-ref ref="NOTIFICATION"/>
+    </logger>
+
+    <root name="stdout" level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

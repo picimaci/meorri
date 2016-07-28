@@ -1,0 +1,85 @@
+@(id: Long)
+@scripts = {
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("paginate-anything.js"))" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/sysuser/sysuseredit.js")" type="text/javascript"></script>
+
+    <script>
+            jQuery(document).ready(function () {
+                var scope = angular.element('#sysUserEditCtrl').scope();
+                var vm = scope.vm;
+                vm.id = @id;
+                scope.init();
+            });
+    </script>
+}
+
+@main("SysUser", "global.edit.title", "sysuser", scripts) {
+    <div class="row" id="sysUserEditCtrl" ng-app="SysUserEdit" ng-controller="SysUserEditCtrl as vm" ng-cloak>
+        <div class="card-body message-center">
+            <form name="vm.sysUserEditForm" action="" class="form form-validate" novalidate="novalidate">
+                <div class="card">
+                    <div class="card-head card-head-sm style-primary">
+                        <header>
+                            <i ng-if="vm.id < 0">@Messages.get("global.edit.title", Messages.get("sysuser"))</i>
+                            <i ng-if="vm.id > 0">@Messages.get("global.new.title", Messages.get("sysuser"))</i>
+                        </header>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" id="name" ng-model="vm.sysUser.name"
+                            ng-class="{'parsley-error': (vm.sent && vm.sysUserEditForm.name.$invalid)}" required>
+                            <ul class="parsley-errors-list filled" ng-show="vm.sent && vm.sysUserEditForm.name.$invalid">
+                                <li class="parsley-required" ng-show="vm.sysUserEditForm.name.$error.required">@Messages.get("global.validation.required")</li>
+                            </ul>
+                            <label for="name">@Messages.get("global.name") <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" ng-model="vm.sysUser.email"
+                            ng-class="{'parsley-error': (vm.sent && vm.sysUserEditForm.email.$invalid)}"
+                            required>
+                            <ul class="parsley-errors-list filled" ng-show="vm.sent && vm.sysUserEditForm.email.$invalid">
+                                <li class="parsley-required" ng-show="vm.sysUserEditForm.email.$error.required">@Messages.get("global.validation.required")</li>
+                                <li class="parsley-required" ng-show="vm.sysUserEditForm.email.$error.email">@Messages.get("global.validation.email")</li>
+                            </ul>
+                            <label for="email">@Messages.get("global.email") <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="phone" id="phone" ng-model="vm.sysUser.phone"
+                            ng-class="{'parsley-error': (vm.sent && vm.sysUserEditForm.phone.$invalid)}" data-rule-number="true">
+                            <label for="phone">@Messages.get("global.phone")</label>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="languageCode" id="languageCode"
+                            ng-model="vm.sysUser.languageCode"
+                            ng-options="languageCode as languageCode for languageCode in vm.languages"
+                            ng-class="{'parsley-error': (vm.sent && vm.sysUserEditForm.languageCode.$invalid)}"
+                            required>
+                                <option value="" class="default-option" selected></option>
+                            </select>
+                            <ul class="parsley-errors-list filled" ng-show="vm.sent && vm.sysUserEditForm.languageCode.$invalid">
+                                <li class="parsley-required" ng-show="vm.sysUserEditForm.languageCode.$error.required">@Messages.get("global.validation.required")</li>
+                            </ul>
+                            <label for="languageCode">@Messages.get("global.language") <span class="text-danger">
+                                *</span></label>
+                        </div>
+                        <div class="checkbox checkbox-styled">
+                            <label>
+                                <input type="checkbox" value="" name="webUser" id="webUser" ng-model="vm.sysUser.webUser">
+                                <span>@Messages.get("global.webuser")</span>
+                            </label>
+                        </div>
+                    </div><!--end .card-body -->
+                    <div class="card-actionbar">
+                        <div class="card-actionbar-row">
+                            <a href="javascript:void(0);" ng-click="vm.save()" class="btn btn-success" type="button">@Messages.get("global.save")</a>
+                            <a href="javascript:void(0);" ng-click="vm.cancel()" class="btn btn-warning" type="button">@Messages.get("global.cancel")</a>
+                        </div>
+                    </div>
+                </div><!--end .card -->
+
+            </form>
+                <!--/ Form default layout -->
+        </div>
+    </div>
+}
+

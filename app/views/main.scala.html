@@ -1,4 +1,5 @@
 @import utils.AppConf
+@import utils.UserSession
 
 @(selectedMenu: String, template: String, specifier: String, scripts: Html = Html(""), styles: Html = Html(""))(content: Html)
 
@@ -13,7 +14,7 @@
             <!-- BEGIN HEADER-->
         <header id="header" >
             <div class="headerbar">
-                    <!-- Brand and toggle get grouped for bett er mobile display -->
+                    <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="headerbar-left">
                     <ul class="header-nav header-nav-options">
                         <li class="header-nav-brand" >
@@ -30,40 +31,28 @@
                         </li>
                     </ul>
                 </div>
-
-                <div class="headerbar-center">
-                    <ul class="header-nav">
-                        <li class="dropdown profile">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="meta">
-                                    <span class="caret"></span>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="headerbar-right">
                     <ul class="header-nav">
                         <li class="dropdown profile">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="meta">
+                                    <span class="text hidden-xs hidden-sm pl5">@UserSession.getCurrentUserDTO(session).fullName</span>
                                     <span class="caret"></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
 
+                                <li><a href="@controllers.sysuser.profile.routes.SysUserProfileEditCtrl.index()"><span class="icon"><i class="ico-cog4"></i></span> @Messages.get("core.myprofile")</a></li>
+                                @*<li class="divider"></li>*@
+
+                                <li><a href="@routes.Application.logout"><span class="icon"><i class="ico-exit"></i></span> @Messages.get("core.logout")</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div> <!--end #header-navbar-collapse -->
             </div>
         </header>
-            <!-- END HEADER-->
 
             <!-- BEGIN BASE-->
         <div id="base">
@@ -120,7 +109,7 @@
 
                         <!-- BEGIN MAIN MENU -->
                     <ul id="main-menu" class="gui-controls">
-                        <li class="gui-folder">
+                        <li id="Gallery" class="gui-folder">
                             <a>
                                 <div class="gui-icon"><i class="md md-insert-photo"></i></div>
                                 <span class="title">@Messages.get("gallery")</span>
@@ -129,6 +118,18 @@
                                 <li><a href="@controllers.routes.Application.gallery()"><span class="title">@Messages.get("donlon")</span></a></li>
                                 <li><a href="@controllers.routes.Application.gallery()"><span class="title">@Messages.get("others")</span></a></li>
                             </ul>
+                        </li>
+                        <li id="News" class="News">
+                            <a href="@controllers.routes.Application.news()">
+                                <div class="gui-icon"><i class="md md-view-list"></i></div>
+                                <span class="title">@Messages.get("news")</span>
+                            </a>
+                        </li>
+                        <li id="Timeline" class="Timeline">
+                            <a href="@controllers.routes.Application.timeline()">
+                                <div class="gui-icon"><i class="md md-view-list"></i></div>
+                                <span class="title">@Messages.get("timeline")</span>
+                            </a>
                         </li>
 
                     </ul> <!--end .main-menu -->

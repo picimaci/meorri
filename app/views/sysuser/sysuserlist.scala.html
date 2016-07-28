@@ -1,0 +1,119 @@
+@()
+@scripts = {
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("paginate-anything.js"))" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/sysuser/sysuserlist.js")" type="text/javascript"></script>
+    <script>
+            jQuery(document).ready(function () {
+                angular.element("#sysUserList").scope().init();
+            });
+    </script>
+}
+@main("SysUser",  "global.list.title", "sysuser", scripts) {
+    <div class="card" id="sysUserList" ng-app="SysUserList" ng-controller="SysUserListCtrl" ng-cloak>
+        <div class="card-head card-head-sm style-primary">
+            <header>@Messages.get("global.list.title", Messages.get("sysuser"))</header>
+        </div>
+        <div class="card-actionbar">
+            <div class="card-actionbar-row">
+                <a href="javascript:void(0);" ng-click="edit(-1)" class="btn btn-success" type="button">@Messages.get("global.new.label", Messages.get("sysuser"))</a>
+                <a href="javascript:void(0);" ng-click="import()" class="btn btn-info" type="button">@Messages.get("global.import.title", Messages.get("sysusers"))</a>
+            </div>
+        </div>
+        <div class="card-body message-center">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th ng-class="urlParams.sortBy=='id' && urlParams.sortOrder==true ? 'sorting_asc' : (urlParams.sortBy=='id' && urlParams.sortOrder==false ? 'sorting_desc' : 'sorting')" ng-click="changeSort('id')">
+                            #
+                        </th>
+                        <th ng-class="urlParams.sortBy=='active' && urlParams.sortOrder==true ? 'sorting_asc' : (urlParams.sortBy=='active' && urlParams.sortOrder==false ? 'sorting_desc' : 'sorting')" ng-click="changeSort('active')">
+                        @Messages.get("global.active")
+                        </th>
+                        <th ng-class="urlParams.sortBy=='name' && urlParams.sortOrder==true ? 'sorting_asc' : (urlParams.sortBy=='name' && urlParams.sortOrder==false ? 'sorting_desc' : 'sorting')" ng-click="changeSort('name')">
+                        @Messages.get("global.name")
+                        </th>
+                        <th ng-class="urlParams.sortBy=='email' && urlParams.sortOrder==true ? 'sorting_asc' : (urlParams.sortBy=='email' && urlParams.sortOrder==false ? 'sorting_desc' : 'sorting')" ng-click="changeSort('email')">
+                        @Messages.get("global.email")
+                        </th>
+                        <th/>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="filter">
+                        <td/>
+                        <td>
+                            <select class="form-control input-sm" name="status" ng-model="tempParams.isActive">
+                                <option value="ALL">@Messages.get("global.all")</option>
+                                <option value="TRUE">@Messages.get("global.active")</option>
+                                <option value="FALSE">@Messages.get("global.inactive")</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="form-control input-sm" type="text" name="name" ng-model="tempParams.name" ng-enter="filter()" select-on-click>
+                        </td>
+                        <td>
+                            <input class="form-control input-sm" type="text" name="email" ng-model="tempParams.email" ng-enter="filter()" select-on-click>
+                        </td>
+                        <td class="text-center">
+                            <filter-button
+                            template-url="/assets/tpl/filter-button.html">
+                            </filter-button>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="sysUser in sysUsers track by sysUser.id">
+                        <td>{{sysUser.id}}</td>
+                        <td class="text-center">
+                            <i ng-if="!sysUser.active" class="fa fa-minus-square-o"></i>
+                            <i ng-if="sysUser.active" class="fa fa-check-square"></i>
+                        </td>
+                        <td>{{sysUser.name}}</td>
+                        <td>{{sysUser.email}}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-default">@Messages.get("global.actions")</button>
+                                <button type="button"
+                                class="btn btn-sm btn-default dropdown-toggle"
+                                data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="javascript:void(0);" ng-click="edit(sysUser.id)">
+                                            <i class="fa fa-pencil"></i> @Messages.get("global.edit")
+                                        </a>
+                                    </li>
+                                    <li ng-show="!sysUser.active">
+                                        <a href="javascript:void(0);" ng-click="activate(sysUser.id)">
+                                            <i class="fa fa-check-square"></i> @Messages.get("global.activate")
+                                        </a>
+                                    </li>
+                                    <li ng-show="sysUser.active">
+                                        <a href="javascript:void(0);" ng-click="deactivate(sysUser.id)">
+                                            <i class="fa fa-minus-square-o"></i> @Messages.get("global.deactivate")
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" ng-click="delete(sysUser.id)" class="message-danger">
+                                            <i class="fa fa-trash"></i> @Messages.get("global.delete")
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <bgf-pagination
+            client-limit="clientLimit"
+            collection="sysUsers"
+            page="page"
+            per-page="perPage"
+            template-url="/assets/tpl/paginate-anything.html"
+            url="url"
+            url-params="urlParams"
+            passive="passive"
+            >
+            </bgf-pagination>
+        </div>
+    </div>
+}

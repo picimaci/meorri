@@ -3,14 +3,54 @@
 # ~~~~
 
 # Home page
-GET        /                     controllers.Application.index
-GET        /gallery              controllers.Application.gallery()
-GET        /messages.js          controllers.Application.jsMessages()
+GET         /                                  controllers.Application.index
+GET         /messages.js                       controllers.Application.jsMessages()
+GET         /login                             controllers.Application.login(path:String)
+GET         /logout                            controllers.Application.logout()
 
-# Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file         controllers.Assets.versioned(path="/public", file: Asset)
-GET        /webjars/*file        controllers.WebJarAssets.at(file)
+GET         /gallery                           controllers.Application.gallery()
+GET         /news                              controllers.Application.news()
+GET         /timeline                          controllers.Application.timeline()
 
 # jsRoutes
-GET        /js/routes            controllers.Application.jsRoutes()
+GET         /assets/js/routes                  controllers.Application.jsRoutes()
+
+# Login
+GET         /notAuthorized                     controllers.BaseCtrl.notAuthorized()
+POST        /authenticate                      controllers.login.LoginCtrl.authenticate()
+POST        /forgotpassword                    controllers.login.LoginCtrl.forgotPassword()
+GET         /resetpassword/:token              controllers.login.LoginCtrl.resetPassword(token :String)
+POST        /savenewpassword                   controllers.login.LoginCtrl.saveNewPassword()
+
+# SysUser List
+GET         /sysuser/list                      controllers.sysuser.list.SysUserListCtrl.index()
+GET         /sysuser/api/list                  controllers.sysuser.list.SysUserListCtrl.listAjax()
+POST        /sysuser/api/activate/:id          controllers.sysuser.list.SysUserListCtrl.activate(id: Long)
+POST        /sysuser/api/deactivate/:id        controllers.sysuser.list.SysUserListCtrl.deactivate(id: Long)
+POST        /sysuser/api/delete/:id            controllers.sysuser.list.SysUserListCtrl.delete(id: Long)
+
+# SysUser Edit
+GET         /sysuser/edit/:id                  controllers.sysuser.edit.SysUserEditCtrl.index(id: Long)
+GET         /eventtype/api/get/:id             controllers.sysuser.edit.SysUserEditCtrl.get(id: Long)
+POST        /eventtype/api/save                controllers.sysuser.edit.SysUserEditCtrl.save()
+
+# SysUser Profile
+GET         /myprofile                         controllers.sysuser.profile.SysUserProfileEditCtrl.index()
+GET         /myprofile/api/get                 controllers.sysuser.profile.SysUserProfileEditCtrl.get()
+POST        /myprofile/api/save                controllers.sysuser.profile.SysUserProfileEditCtrl.save()
+
+# SysUser Import
+GET         /sysusers/import                   controllers.sysuser.importsysuser.SysUserImportCtrl.index()
+POST        /sysusers/api/import/save/         controllers.sysuser.importsysuser.SysUserImportCtrl.importSysUsersFromCSV()
+
+# SysUser Service
+GET         /sysuser/api/languages             controllers.sysuser.service.SysUserServiceCtrl.getLanguages()
+
+# For development purposes only
+GET         /assets/at/*file                   controllers.Assets.at(path="/public", file: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                      controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/versioned/*file            controllers.Assets.versioned(path="/public", file: Asset)
+GET         /webjars/*file                     controllers.WebJarAssets.at(file)
     

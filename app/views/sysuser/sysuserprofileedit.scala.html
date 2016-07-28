@@ -1,0 +1,68 @@
+@scripts = {
+
+    <script src="@routes.Assets.versioned("vendor/angular-checklist-model/checklist-model.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/sysuser/sysuserprofileedit.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+            jQuery(document).ready(function(){
+                var scope = angular.element('#sysUserProfileEditCtrl').scope();
+                var vm = scope.vm;
+                scope.init();
+            });
+
+    </script>
+}
+
+@main("SysUser","global.edit.title", "global.profile", scripts) {
+    <div class="row" id="sysUserProfileEditCtrl" ng-app="SysUserProfileEdit" ng-controller="SysUserProfileEditCtrl as vm" ng-cloak>
+        <div class="col-md-12 col-lg-8 col-lg-offset-2">
+            <div class="card-head card-head-sm style-primary">
+                <header>@Messages.get("global.edit.title", Messages.get("global.profile"))</header>
+            </div>
+                <!-- Form default layout -->
+            <form name="vm.sysUserProfileEditForm" action="" class="form-horizontal panel panel-default" autocomplete="off" novalidate>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">@Messages.get("global.email") <span class="text-danger">*</span></label>
+                        <div class="col-sm-5">
+                            <input type="email" class="form-control" name="email" ng-model="vm.sysUser.email"
+                            ng-class="{'parsley-error': (vm.sysUserProfileEditForm.email.$dirty && vm.sysUserProfileEditForm.email.$invalid)}"
+                            required>
+                            <ul class="parsley-errors-list filled" ng-show="vm.sysUserProfileEditForm.email.$dirty && vm.sysUserProfileEditForm.email.$invalid">
+                                <li class="parsley-required" ng-show="vm.sysUserProfileEditForm.email.$error.required">@Messages.get("global.validation.required")</li>
+                                <li class="parsley-required" ng-show="vm.sysUserProfileEditForm.email.$error.email">@Messages.get("global.validation.email")</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">@Messages.get("global.phone")</label>
+                        <div class="col-sm-5">
+                            <input type="phone" class="form-control" name="phone" ng-model="vm.sysUser.phone"
+                            ng-class="{'parsley-error': (vm.sysUserProfileEditForm.phone.$dirty && vm.sysUserProfileEditForm.phone.$invalid)}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">@Messages.get("global.language") <span class="text-danger">*</span></label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="languageCode"
+                            ng-class="{'parsley-error': (vm.sysUserProfileEditForm.languageCode.$dirty && vm.sysUserProfileEditForm.languageCode.$invalid)}"
+                            ng-model="vm.sysUser.languageCode"
+                            ng-options="languageCode as languageCode for languageCode in vm.languages"
+                            required>
+                            </select>
+                            <ul class="parsley-errors-list filled" ng-show="vm.sysUserProfileEditForm.languageCode.$dirty && vm.sysUserProfileEditForm.languageCode.$invalid">
+                                <li class="parsley-required" ng-show="vm.sysUserProfileEditForm.languageCode.$error.required">@Messages.get("global.validation.required")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actionbar">
+                    <div class="card-actionbar-row">
+                        <a href="javascript:void(0);" ng-click="vm.save()" class="btn btn-success" type="button">@Messages.get("global.save")</a>
+                        <a href="javascript:void(0);" ng-click="vm.cancel()" class="btn btn-warning" type="button">@Messages.get("global.cancel")</a>
+                    </div>
+                </div>
+            </form>
+                <!--/ Form default layout -->
+        </div>
+    </div>
+}

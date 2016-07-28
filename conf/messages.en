@@ -6,6 +6,105 @@ gallery=Gallery
 comics=Comics
 donlon=Donlon
 others=Others
+news=News
+timeline=Timeline
 
 core.menu.dashboard=Meorri Art
+
+
+#TODO: kigyepálni, ami nem kell, szépen berendezni, ami igen
+email.lostpassword.message=<html><body>\
+  <p>To reset your password please click the following link:</p>\
+  <p><a href="{0}">I want to reset my password!</a></p>\
+  </body></html>
+email.lostpassword.subject=[Template] Please reset your password
+email.notsent=Unable to send e-mail.
+
+login.error=An error occurred during the login process.
+login.forgotten=Forgotten?
+login.header=Log in to your account
+login.loginname=Login name
+login.nouserfound=Wrong username or password.
+login.forgotpassword.success=We''ve sent you an email, please follow the instructions included
+
+global.datetimeformat=yyyy. MM. dd. HH:mm
+global.datetimeformatreverse=yyyy-MM-dd''T''HH:mm
+global.error.dto=Invalid data transmit object
+global.error.getdata.message=An error occured while getting data, please contact the administrator
+global.error.getdata.title=Ooops, an error occured
+global.error.data=An error occured while fetching data, please contact administrator!
+global.error.savedata.title=Ooops, an error occured
+global.error.savedata.message=An error occured while saving data, please contact administrator!
+global.error.title=Ooops, an error occured
+global.error.noauthorizationforthispage=You are not authorized to view this page.
+global.error.unknown=Unkown error!
+global.form.error.email=The e-mail address you have given is invalid
+global.form.error=An error occured, we couldn't save your changes!
+global.upload.error=An error occured, we couldn't upload the file!
+global.validation.e-mail=Invalid e-mail address
+global.validation.email=Invalid e-mail address
+global.validation.number=Invalid number
+global.validation.required=This field is required.
+
+global.active=Active
+global.inactive=Inactive
+global.all=All
+global.email=E-mail
+global.language=Language
+global.login=Log In
+global.name=Name
+global.password=Password
+global.phone=Phone Number
+global.webuser=Web User
+global.size=Size
+global.progress=Progress
+global.status=Status
+global.queueprogress=Queue Progress
+
+global.actions=Actions
+global.edit=Edit
+global.list=List
+global.import=Import
+global.view=View
+global.delete=Delete
+global.activate=Activate
+global.deactivate=Deactivate
+global.save=Save
+global.cancel=Cancel
+global.upload=Upload
+global.done=Done
+
+global.new.label=New {0}
+global.edit.title={0} Editor
+global.import.title=Import {0}
+global.list.title={0} List
+global.order.title=Change {0} Order
+global.view.title=View {0}
+global.new.title=Create New {0}
+
+global.confirm.delete=Are you sure you want to delete this {0}?
+global.message.delete.success={0} deleted successfully.
+global.message.save.success={0} saved successfully.
+global.message.order.success={0} order changed successfully.
+global.import.success={0} import was successful!
+global.import.csvextensionerror=File extension incorrect, please upload .csv files!
+global.error.notfound={0} not found!
+
+resetpassword.button.reset=Reset password
+resetpassword.header=Reset password
+resetpassword.password1=Type password
+resetpassword.password2=Type password again
+resetpassword.passwords.didntmatch=Passwords don''t match
+
+sysuser=User
+sysusers=Users
+sysuserlist.question.activate=Are you sure to want to activate this user?
+sysuserlist.question.deactivate=Are you sure to want to deactivate this user?
+sysuserlist.activate.message.success=User activated successfully
+sysuserlist.deactivate.message.success=User deactivated successfully
+sysuser.error.notfound=User not found!
+sysuser.error.nosysuser=No valid users found. Please check input file(s)!
+sysuser.error.duplicate=An e-mail address can only be used by one single user. Please reconsider your input!
+sysuser.error.language=Unknown language code detected. Please check input file(s)!
+sysuserimport.illegalargumentexception=CSV header does not match user.
 
