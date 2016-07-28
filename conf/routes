@@ -11,6 +11,7 @@ GET         /logout                            controllers.Application.logout()
 GET         /gallery                           controllers.Application.gallery()
 GET         /news                              controllers.Application.news()
 GET         /timeline                          controllers.Application.timeline()
+GET         /piccolo                           controllers.Application.piccolo()
 
 # jsRoutes
 GET         /assets/js/routes                  controllers.Application.jsRoutes()

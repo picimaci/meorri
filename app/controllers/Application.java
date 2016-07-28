@@ -24,10 +24,7 @@ import play.mvc.Result;
 import utils.SessionStoreAdapter;
 import utils.UserSession;
 import views.html.gallery.gallery;
-import views.html.index;
-import views.html.login;
-import views.html.news;
-import views.html.timeline;
+import views.html.*;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -62,6 +59,11 @@ public class Application extends Controller {
     @SubjectPresent
     public Result timeline() {
         return ok(timeline.render());
+    }
+
+    @SubjectPresent
+    public Result piccolo() {
+        return ok(piccolo.render());
     }
 
     public Result dummy(String x) {
@@ -127,6 +129,7 @@ public class Application extends Controller {
         routeList.add(routes.javascript.Application.gallery());
         routeList.add(routes.javascript.Application.news());
         routeList.add(routes.javascript.Application.timeline());
+        routeList.add(routes.javascript.Application.piccolo());
 
         return routeList.toArray(new JavaScriptReverseRoute[routeList.size()]);
     }

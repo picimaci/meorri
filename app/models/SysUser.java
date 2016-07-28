@@ -58,7 +58,7 @@ public class SysUser extends Model implements Filterable{
     public boolean deleted;
 
     @ManyToMany
-    @JoinTable(name = "sysuser_role", joinColumns = @JoinColumn(name = "sysuser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "picimaci_sysuser_role", joinColumns = @JoinColumn(name = "sysuser_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     public List<Role> roles;
 
     public static String ID_FILTER = "id";
