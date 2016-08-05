@@ -24,8 +24,11 @@ import play.mvc.Result;
 import utils.SessionStoreAdapter;
 import utils.UserSession;
 import views.html.gallery.gallery;
-import views.html.*;
-
+import views.html.index;
+import views.html.login;
+import views.html.playground.news;
+import views.html.playground.timeline;
+import views.html.playground.piccolo;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Optional;

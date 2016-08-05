@@ -108,3 +108,16 @@ sysuser.error.duplicate=An e-mail address can only be used by one single user. P
 sysuser.error.language=Unknown language code detected. Please check input file(s)!
 sysuserimport.illegalargumentexception=CSV header does not match user.
 
+
+
+
+
+
+
+
+
+
+#wanarinál írtam
+global.myprofile=My Profile
+global.logout=Log Out
+#wanarinál vége
